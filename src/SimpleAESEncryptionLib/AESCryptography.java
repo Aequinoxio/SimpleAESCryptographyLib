@@ -95,6 +95,7 @@ public class AESCryptography extends CryptographyBaseClass {
         // Inizializzo il vettore IV
         if (ivBytes == null) {
             cipher.init(cipherMode, secret);
+            
             AlgorithmParameters parameters = cipher.getParameters();
             ivBytes = parameters.getParameterSpec(IvParameterSpec.class).getIV();
         } else {

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+package SimpleAESEncryptionLib;
+        
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -292,6 +294,7 @@ public class AESCryptographyTest {
         byte[] salt={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
         aesCryptography.setPass("pippopippo".toCharArray(),salt);
+        aesCryptography.createKey();
         //byte[] salt = aesCryptography.getSalt();
 
         if (cifratura) {
@@ -350,6 +353,7 @@ public class AESCryptographyTest {
         CryptographyBaseClass aesCipher = Base64Criptography.wrap(new AESCryptography());
 //	    InterfaceCryptography aesCipher = new AESCryptography();
         aesCipher.setPass("pippo1234567890".toCharArray());
+        aesCipher.createKey();
         String testoInChiaro="prova di testo da codificare1234"
                 + "prova di testo da codificare,prova di testo da codificare,"
                 + "prova di testo da codificare";
