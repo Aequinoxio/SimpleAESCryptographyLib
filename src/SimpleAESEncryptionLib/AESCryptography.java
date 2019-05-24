@@ -45,7 +45,7 @@ import javax.crypto.spec.SecretKeySpec;
  * decode devono lavorare sui byte[] invece che su String altrimenti il metodo
  * doFinal in decode lancia una exception legata al mancato padding
  */
-public class AESCryptography implements InterfaceCryptography {
+public class AESCryptography extends CryptographyBaseClass {
 
     //private static String CYPHERALGORITHM = "PBEWithHmacSHA512AndAES_256";
     private static String CIPHERALGORITHM = "PBKDF2WithHmacSHA256";

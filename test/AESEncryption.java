@@ -42,7 +42,7 @@ public class AESEncryption {
     }
     
     private static void testCifraDecifraFile() throws GeneralSecurityException, GeneralSecurityException, UnsupportedEncodingException, IOException{
-       	    InterfaceCryptography aesCipher = Base64Criptography.wrap(new AESCryptography());
+       	    CryptographyBaseClass aesCipher = Base64Criptography.wrap(new AESCryptography());
 //	    InterfaceCryptography aesCipher = new AESCryptography();
 	    aesCipher.setPass("pippo1234567890".toCharArray());
 	    byte[] testoCodificato=aesCipher.encode("prova di testo da codificare1234"
@@ -53,13 +53,13 @@ public class AESEncryption {
 	    String testoDecodificato=aesCipher.decode(testoCodificato);
 	    System.out.format("Testo decodificato: %s %n", testoDecodificato);
 	    
-	    InterfaceCryptography aesCryptography = new AESCryptography();
+	    CryptographyBaseClass aesCryptography = new AESCryptography();
 	    cifraDecifra("d:\\SysnativeBSODApps.exe","d:\\file_cifrato.txt", aesCryptography, true);
 	    cifraDecifra("d:\\file_cifrato.txt","d:\\SysnativeBSODApps.exe_decifrato.txt", aesCryptography, false);
  
     }
     
-    private static void cifraDecifra(String fileIn, String fileOut,InterfaceCryptography aesCryptography, boolean cifratura) throws FileNotFoundException, GeneralSecurityException, IOException{
+    private static void cifraDecifra(String fileIn, String fileOut,CryptographyBaseClass aesCryptography, boolean cifratura) throws FileNotFoundException, GeneralSecurityException, IOException{
 	FileInputStream fin;
 	FileOutputStream fos;
         fin = new FileInputStream(fileIn);
@@ -102,8 +102,8 @@ public class AESEncryption {
      * codifico con un oggetto e decodifico con un altro
      */
     private static void testEncodeDecodeString() throws GeneralSecurityException, UnsupportedEncodingException{
-        InterfaceCryptography aes1 = Base64Criptography.wrap(new AESCryptography());
-        InterfaceCryptography aes2 = Base64Criptography.wrap(new AESCryptography());
+        CryptographyBaseClass aes1 = Base64Criptography.wrap(new AESCryptography());
+        CryptographyBaseClass aes2 = Base64Criptography.wrap(new AESCryptography());
         //AESCryptography aes2 = new AESCryptography();
         String plainText="prova";
         

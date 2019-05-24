@@ -27,14 +27,14 @@ import javax.crypto.spec.SecretKeySpec;
  *
  * @author utente
  */
-public class Base64Criptography implements InterfaceCryptography{
-    private InterfaceCryptography cryptography;
+public class Base64Criptography extends CryptographyBaseClass{
+    private CryptographyBaseClass cryptography;
 
-    public Base64Criptography(InterfaceCryptography cryptography) {
+    public Base64Criptography(CryptographyBaseClass cryptography) {
 	this.cryptography = cryptography;
     }
     
-    public static Base64Criptography wrap (InterfaceCryptography crypto){
+    public static Base64Criptography wrap (CryptographyBaseClass crypto){
 	return new Base64Criptography(crypto);
     }
     

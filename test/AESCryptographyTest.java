@@ -283,7 +283,7 @@ public class AESCryptographyTest {
      * @throws GeneralSecurityException
      * @throws IOException
      */
-    private void cifraDecifra(String fileIn, String fileOut, InterfaceCryptography aesCryptography, boolean cifratura) throws FileNotFoundException, GeneralSecurityException, IOException {
+    private void cifraDecifra(String fileIn, String fileOut, CryptographyBaseClass aesCryptography, boolean cifratura) throws FileNotFoundException, GeneralSecurityException, IOException {
         FileInputStream fin;
         FileOutputStream fos;
         fin = new FileInputStream(fileIn);
@@ -309,8 +309,8 @@ public class AESCryptographyTest {
      * @throws UnsupportedEncodingException
      */
     private boolean testEncodeDecodeString() throws GeneralSecurityException, UnsupportedEncodingException {
-        InterfaceCryptography aes1 = Base64Criptography.wrap(new AESCryptography());
-        InterfaceCryptography aes2 = Base64Criptography.wrap(new AESCryptography());
+        CryptographyBaseClass aes1 = Base64Criptography.wrap(new AESCryptography());
+        CryptographyBaseClass aes2 = Base64Criptography.wrap(new AESCryptography());
         //AESCryptography aes2 = new AESCryptography();
         String plainText = "prova";
 
@@ -347,7 +347,7 @@ public class AESCryptographyTest {
      */
     @Test
     public void testCifraDecifraFile() throws GeneralSecurityException, GeneralSecurityException, UnsupportedEncodingException, IOException {
-        InterfaceCryptography aesCipher = Base64Criptography.wrap(new AESCryptography());
+        CryptographyBaseClass aesCipher = Base64Criptography.wrap(new AESCryptography());
 //	    InterfaceCryptography aesCipher = new AESCryptography();
         aesCipher.setPass("pippo1234567890".toCharArray());
         String testoInChiaro="prova di testo da codificare1234"
@@ -361,7 +361,7 @@ public class AESCryptographyTest {
 
         assertTrue(testoInChiaro.equals(testoDecodificato));
         
-        InterfaceCryptography aesCryptography = new AESCryptography();
+        CryptographyBaseClass aesCryptography = new AESCryptography();
         String fileInput = "D:\\temp\\a_TODEL.mp4";
         String fileOutput = "D:\\temp\\a_TODEL.mp4_CIFRATO";
         String fileInputDecifrato = "D:\\temp\\a_TODEL.mp4_decifrato";
